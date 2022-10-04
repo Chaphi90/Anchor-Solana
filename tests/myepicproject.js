@@ -11,7 +11,7 @@ const main = async() => {
   const program = anchor.workspace.Myepicproject; //must be a capitalized
 
   const baseAccount = anchor.web3.Keypair.generate();
-  
+
   let tx = await program.rpc.startStuffOff({
     accounts: {
         baseAccount: baseAccount.publicKey,
@@ -25,6 +25,17 @@ const main = async() => {
 
   let account = await program.account.baseAccount.fetch(baseAccount.publicKey);
   console.log('👀 GIF Count', account.totalGifs.toString())
+
+  await program.rpc.addGif({
+    accounts: {
+        baseAccount: baseAccount.publicKey,
+    },
+  });
+
+  account = await program.account.baseAccount.fetch(baseAccount.publicKey);
+  console.log('👀 GIF Count', account.totalGifs.toString())
+
+ 
 }
 
 

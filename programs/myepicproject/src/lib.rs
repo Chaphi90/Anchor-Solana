@@ -1,5 +1,5 @@
 use anchor_lang::prelude::*;
-use anchor_lang::solana_program::entrypoint::ProgramResult;
+//use anchor_lang::solana_program::entrypoint::ProgramResult;
 
 declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
 
@@ -16,6 +16,7 @@ pub mod myepicproject {
     let base_account = &mut ctx.accounts.base_account;
     base_account.total_gifs += 1;
     Ok(())
+  }
 }
 
 #[derive(Accounts)]
